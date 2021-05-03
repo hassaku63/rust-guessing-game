@@ -22,10 +22,11 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        // すでに利用した変数名にかぶせることはできるらしい。"shadowing" という用語が充てられている模様
-        let guess: u32 = guess.trim()
-            .parse()
-            .expect("Please type a number");
+        // match は式らしい。このへんは自分が知っている if, switch と少し勝手が異なる。
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
         println!("You guessed: {}", guess);
 
