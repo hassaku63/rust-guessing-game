@@ -1,4 +1,5 @@
 use std::io;
+// 外部のライブラリクレートの使用
 use rand::Rng;
 
 fn main() {
